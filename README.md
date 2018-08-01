@@ -23,7 +23,8 @@ server {
         index index.html index.htm index.php;
     }
 
-    # autoindex for nginx
+    # autoindex for nginx 
+    #如果请求为apk/ipd/zip之类的静态文件，且命中此location,则会导致文件格式损坏.建议使用body_filter_by_lua，并加入mime类型判断
     location ~ ^(.*)/$ {
         autoindex       on;
         autoindex_localtime on;
